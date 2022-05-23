@@ -1,0 +1,228 @@
+﻿<UserControl x:Class="PolarSectorsControl.PSControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:lcusb="http://schemas.arction.com/semibindablecharting/ultimate/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cc="clr-namespace:CSharpControls.Wpf;assembly=CSharpControls.Wpf"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:PolarSectorsControl"
+             Name="control"
+             Loaded="control_Loaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <local:Converter x:Key="conv" />
+        <Color x:Key="ColorForeground">#FF00D7F9</Color>
+        <SolidColorBrush x:Key="ControlForeground" Color="#FF00D7F9" />
+    </UserControl.Resources>
+
+    <Grid Name="grid">
+        <lcusb:LightningChartUltimate
+    x:Name="chart"
+    ActiveView="ViewPolar">
+
+            <lcusb:LightningChartUltimate.ChartBackground>
+                <lcusb:Fill GradientFill="Solid" Color="#FF333333" GradientColor="#FF333333" />
+            </lcusb:LightningChartUltimate.ChartBackground>
+
+            <lcusb:LightningChartUltimate.Title>
+                <lcusb:ChartTitle Visible="False" />
+            </lcusb:LightningChartUltimate.Title>
+            <lcusb:LightningChartUltimate.ViewPolar>
+                <lcusb:ViewPolar x:Name="viewPolar" Margins="0">
+                    <lcusb:ViewPolar.Axes>
+                        <lcusb:AxisPolar
+                x:Name="axis"
+                AmplitudeAxisLineVisible="False"
+                AmplitudeLabelsVisible="False"
+                AngleOrigin="-90"
+                AngularAxisAutoDivSpacing="False"
+                AngularAxisMajorDivCount="8"
+                AutoFormatLabels="False"
+                AxisColor="LightBlue"
+                InnerCircleRadiusPercentage="5"
+                MajorDivCount="6"
+                MouseHighlight="None"
+                MouseInteraction="False"
+                MouseScaling="False"
+                MouseScrolling="False"
+                Reversed="True"
+                MaxAmplitude="255"
+                MinAmplitude="0"
+                AngularAxisCircleVisible="False"
+                            AngularTicksVisible="False"
+                            AngularLabelsVisible="True"
+                TickMarkLocation="Outside">
+                            <lcusb:AxisPolar.MinorGrid>
+                                <lcusb:GridOptionsRound Visible="False" />
+                            </lcusb:AxisPolar.MinorGrid>
+                            <lcusb:AxisPolar.Title>
+                                <lcusb:RoundAxisTitle Visible="False"></lcusb:RoundAxisTitle>
+                            </lcusb:AxisPolar.Title>
+                            <lcusb:AxisPolar.Units>
+                                <lcusb:RoundAxisTitle Visible="False" />
+                            </lcusb:AxisPolar.Units>
+                        </lcusb:AxisPolar>
+                        <lcusb:AxisPolar
+                x:Name="axis2"
+                AmplitudeAxisLineVisible="False"
+                AmplitudeLabelsVisible="False"
+                AngleOrigin ="150"
+                AngularAxisAutoDivSpacing="False"
+                AngularAxisMajorDivCount="8"
+                AutoFormatLabels="False"
+                AxisColor="DarkBlue"
+                AngularAxisCircleVisible="False"
+                            AngularTicksVisible="False"
+                            AngularLabelsVisible="True"
+                            
+                InnerCircleRadiusPercentage="1"
+                            
+                MajorDivCount="1"
+                MouseHighlight="None"
+                MouseInteraction="False"
+                MouseScaling="False"
+                MouseScrolling="False"
+                Reversed="True"
+                MaxAmplitude="255"
+                MinAmplitude="0"
+                TickMarkLocation="Outside">
+                            <lcusb:AxisPolar.MinorGrid>
+                                <lcusb:GridOptionsRound Visible="False" />
+                            </lcusb:AxisPolar.MinorGrid>
+                            <lcusb:AxisPolar.Title>
+                                <lcusb:RoundAxisTitle Visible="False"></lcusb:RoundAxisTitle>
+                            </lcusb:AxisPolar.Title>
+                            <lcusb:AxisPolar.Units>
+                                <lcusb:RoundAxisTitle Visible="False" />
+                            </lcusb:AxisPolar.Units>
+                        </lcusb:AxisPolar>
+                        <!--<lcusb:AxisPolar
+                x:Name="axis3"
+                AmplitudeAxisLineVisible="False"
+                AmplitudeLabelsVisible="False"
+                AngleOrigin="135"
+                AngularAxisAutoDivSpacing="False"
+                AngularAxisMajorDivCount="4"
+                AutoFormatLabels="False"
+                           
+                AxisColor="Black"
+                InnerCircleRadiusPercentage="5"
+                MajorDivCount="1"
+                MouseHighlight="None"
+                MouseInteraction="False"
+                MouseScaling="False"
+                MouseScrolling="False"
+                Reversed="True"
+                MaxAmplitude="255"
+                MinAmplitude="0"
+                TickMarkLocation="Outside">
+                            <lcusb:AxisPolar.MinorGrid>
+                                <lcusb:GridOptionsRound Visible="False" />
+                            </lcusb:AxisPolar.MinorGrid>
+                            <lcusb:AxisPolar.Title>
+                                <lcusb:RoundAxisTitle Visible="False"></lcusb:RoundAxisTitle>
+                            </lcusb:AxisPolar.Title>
+                            <lcusb:AxisPolar.Units>
+                                <lcusb:RoundAxisTitle Visible="False" />
+                            </lcusb:AxisPolar.Units>
+                        </lcusb:AxisPolar>-->
+
+
+
+                    </lcusb:ViewPolar.Axes>
+
+                    <lcusb:ViewPolar.PointLineSeries>
+                        <lcusb:PointLineSeriesPolar x:Name="plsp" MouseInteraction="False"  ColorStyle="PalettedByValue">
+                            <lcusb:PointLineSeriesPolar.ValueRangePalette>
+                                <lcusb:ValueRangePalette x:Name="palette"  Type="Gradient" ShowMinValueLegendLabel="False">
+                                    <lcusb:ValueRangePalette.Steps>
+                                        <lcusb:PaletteStep Color="White" MaxValue="0" />
+                                        <lcusb:PaletteStep Color="Yellow" MaxValue="10" />
+                                        <lcusb:PaletteStep Color="Red" MaxValue="20" />
+                                    </lcusb:ValueRangePalette.Steps>
+                                </lcusb:ValueRangePalette>
+                            </lcusb:PointLineSeriesPolar.ValueRangePalette>
+                        </lcusb:PointLineSeriesPolar>
+                    </lcusb:ViewPolar.PointLineSeries>
+
+                    <lcusb:ViewPolar.LegendBox>
+                        <lcusb:LegendBoxPolar Visible="False" />
+                    </lcusb:ViewPolar.LegendBox>
+
+                    <lcusb:ViewPolar.ZoomPanOptions>
+                        <lcusb:ZoomPanOptionsPolar AxisMouseWheelAction="None" LeftMouseButtonAction="None" MiddleMouseButtonAction="None" MouseWheelRotateAction="None" MouseWheelZooming="False" RightMouseButtonAction="None" RightToLeftZoomAction="Off" />
+                    </lcusb:ViewPolar.ZoomPanOptions>
+                </lcusb:ViewPolar>
+            </lcusb:LightningChartUltimate.ViewPolar>
+
+        </lcusb:LightningChartUltimate>
+
+        <Image x:Name="imgCar" IsHitTestVisible="False" Margin="0" Source="image/car.png" Width="{Binding Converter={StaticResource conv}, ElementName=grid, Path=ActualHeight, ConverterParameter=0.4}" Stretch="Uniform" RenderTransformOrigin="0.5,0.5" Opacity="0.55">
+            <Image.RenderTransform>
+                <RotateTransform x:Name="rotateCar" />
+            </Image.RenderTransform>
+        </Image>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,10,0">
+            <Label Name="labelF" Content="" Foreground ="LightBlue" HorizontalAlignment="Left" />
+            <Label Name="labelTheta" Content="" Foreground="LightBlue" HorizontalAlignment="Left" />
+        </StackPanel>
+        <cc:ToggleSwitch x:Name="ToggleSwitch" Margin="2"
+                        IsChecked="True"
+                        HorizontalAlignment="Left"
+                        SnapsToDevicePixels="True"
+                        HeaderHorizontalAlignment="Stretch"
+                        HeaderContentPlacement="Top"
+                        HeaderPadding="0 0 0 4"
+                        SwitchHorizontalAlignment="Center"
+                        SwitchContentPlacement="Right"
+                        SwitchPadding="5 0 0 0"
+                        SwitchWidth ="40"
+                        CheckHorizontalAlignment="Right"
+                        CheckedBackground="LightBlue"
+                        CheckedForeground="#333"
+                        CheckedBorderBrush="#333"
+                        UncheckedBackground="#333"
+                        UncheckedForeground="LightBlue"
+                        UncheckedBorderBrush="LightBlue"
+                        Foreground="LightBlue"
+                        VerticalAlignment="Top"
+                        FontWeight="SemiBold"
+                        CheckedText=  " Points"
+                        UncheckedText="Sectors"
+                        Checked="RbSelectPoints_Checked"
+                        Unchecked="RbSelectSectors_Checked" />
+        <StackPanel HorizontalAlignment="Stretch">
+            <Label Content="N" VerticalAlignment="Top" Margin="0,0,0,0" VerticalContentAlignment="Top" Foreground="White" Padding="0,2,0,1" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <Label Content="S" HorizontalAlignment="Center"   VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Padding="0,2,0,4" FontSize="12" Foreground="White"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+            <Label Content="W" HorizontalAlignment="Left"  Margin="55,47,0,0" HorizontalContentAlignment="Center" FontSize="12" Foreground="White" Height="28" >
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+            <Label Content="E" HorizontalAlignment="Right" Margin="0,11,39,0" VerticalAlignment="Top" FontSize="12" Foreground="White" >
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </StackPanel>
+    </Grid>
+</UserControl>

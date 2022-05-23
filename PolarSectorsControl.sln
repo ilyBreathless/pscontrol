@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarSectorsControl", "PolarSectorsControl\PolarSectorsControl.csproj", "{5D059EF0-7E50-45E3-8BAA-E1C69A753629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{F93A2B95-0D3D-410F-8437-40294075B658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D059EF0-7E50-45E3-8BAA-E1C69A753629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D059EF0-7E50-45E3-8BAA-E1C69A753629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D059EF0-7E50-45E3-8BAA-E1C69A753629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D059EF0-7E50-45E3-8BAA-E1C69A753629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93A2B95-0D3D-410F-8437-40294075B658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93A2B95-0D3D-410F-8437-40294075B658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93A2B95-0D3D-410F-8437-40294075B658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93A2B95-0D3D-410F-8437-40294075B658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {955E80D5-01EB-4340-8E46-9C027B1444C3}
+	EndGlobalSection
+EndGlobal

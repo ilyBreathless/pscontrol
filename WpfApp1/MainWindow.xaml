@@ -1,0 +1,97 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:psControl="clr-namespace:PolarSectorsControl;assembly=PolarSectorsControl"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="600" Width="1200">
+    <Grid Background="#333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Label Content="size car                " Foreground="LightBlue" FontSize="15" />
+                <Slider x:Name="sliderSizeCar" Margin="1.2,0,0,0" MinWidth="300" Value="100" Minimum="100" Maximum="400"  Grid.Column="0" Grid.Row="0" ValueChanged="sliderSizeCar_ValueChanged" IsSnapToTickEnabled="True" TickFrequency="1"></Slider>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="car rotate            " Foreground="LightBlue" FontSize="15" />
+                <Slider x:Name="sliderRotateCar" Margin="1.5,0,0,0" MinWidth="300" Value="0" Minimum="0" Maximum="360"  Grid.Column="0" Grid.Row="0" ValueChanged="sliderRotateCar_ValueChanged"></Slider>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="rotate circle         " Foreground="LightBlue" FontSize="15" />
+                <Slider x:Name="sliderChart" MinWidth="300" Value="0" Minimum="0" Maximum="360"  Grid.Column="0" Grid.Row="0" ValueChanged="sliderChart_ValueChanged"></Slider>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="rotate cir with car" Foreground="LightBlue" FontSize="15" />
+                <Slider x:Name="sliderRotateChartWithCar" MinWidth="300" Value="0" Minimum="0" Maximum="360"  Grid.Column="0" Grid.Row="0" ValueChanged="sliderRotateChartWithCar_ValueChanged"></Slider>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="opasity                " Foreground="LightBlue" Height="35" FontSize="15" />
+                <Slider x:Name="sd" MinWidth="300" Value="1" Minimum="0" Maximum="1"  Grid.Column="0" Grid.Row="0" ValueChanged="sd_ValueChanged"></Slider>
+            </StackPanel>
+            <Button Content="Button" Click="Button_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Height="40">
+                <Label Content="Count Sectors:" Foreground="LightBlue" FontSize="15" />
+                <TextBox x:Name="tbCountSectors" Text="8" Width="30" Height="30" TextChanged="tbCountSectors_TextChanged" />
+                <Label Content="Count Iteration:"  Foreground="LightBlue" Margin="5,0,0,0" FontSize="15" />
+                <TextBox x:Name="tbCountIteration" Text="6" Width="30" Height="30" Margin="0,0,0,5" VerticalAlignment="Bottom" TextChanged="tbCountIteration_TextChanged" />
+                <Label Content="Amplitude:"  Foreground="LightBlue" Margin="5,0,0,0" FontSize="15" />
+                <TextBox x:Name="tbLengthAmplitude" Text="6" Width="30" Height="30" Margin="0,0,0,5" VerticalAlignment="Bottom" TextChanged="tbLengthAmplitude_TextChanged" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBox Text="16" x:Name="tbCountObject" Margin="150,0,215.4,0" TextChanged="tbCountObject_TextChanged" RenderTransformOrigin="-0.393,-0.301" Height="21" />
+                <Label Content="count draw object" Foreground="LightBlue" FontSize="15" Margin="1,0,2.4,0" Height="26" RenderTransformOrigin="0.5,0.5" >
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-360.216"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label Content="Orange(Default Sector Color)" Foreground="Orange" FontSize="15"/>
+            </StackPanel>
+            <Label Content="LightBlue (Unnactive Sector Color)" Foreground="LightBlue" FontSize="15"/>
+            <Label Content="LightPink (Active Sector Color)" Foreground="LightPink" FontSize="15"/>
+            <Label x:Name ="ActiveLabel" Content="Label"/>
+            <TextBox x:Name="ActiveSecTest" Height="23" TextWrapping="Wrap" Text="TextBox"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="high Color" Foreground="LightBlue" FontSize="15" />
+                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged_1" Width="100" Margin="10,0,0,0" Height="24" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="mid Color" Foreground="LightBlue" FontSize="15" ></Label>
+                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged_2" Width="100" Margin="13,0,0,0" Height="24" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="low Color" Foreground="LightBlue" FontSize="15" ></Label>
+                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged" Width="100" Margin="15,0,0,0" Height="24" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,-0.4,0">
+                <Button x:Name="btnRefreshSector" Content="refresh Sector" Margin="5,5,5,5" MaxWidth="100" Click="btnRefresh_Click" FontSize="15" Width="102" />
+                <Button x:Name="btnRefreshPoint" Content="refresh Point" Margin="5,5,5,5" MaxWidth="100" Click="btnRefreshPoint_Click" Width="89" FontSize="15" />
+            </StackPanel>
+        </StackPanel>
+
+        <psControl:PSControl Grid.Column="2" Grid.Row="1" x:Name="psControl" Margin="0,0.4,-0.4,0.4" />
+    </Grid>
+</Window>

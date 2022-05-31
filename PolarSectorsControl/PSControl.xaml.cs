@@ -42,6 +42,7 @@ namespace PolarSectorsControl
         public int[] numOfActiveSectors;
         public int countSec;
         public bool[] actSec;
+        public bool[] actSectors;
 
         private  int checkCount = 8;
         public PSControl()
@@ -65,7 +66,7 @@ namespace PolarSectorsControl
             axis2.SupplyCustomAngleString += Axis2_SupplyCustomAngleString;
             axis2.MajorDivCount = 1;
             
-           
+
             chart.EndUpdate();
         }
       
@@ -76,8 +77,8 @@ namespace PolarSectorsControl
             aqua2.R = 66;
             aqua2.G = 145;
             aqua2.B = 255;
-            actSec = new bool[countSec];
-            for (var i = 0; i < countSec - 1; i++)
+          //  actSec = new bool[countSec];
+            for (var i = 0; i < countSec ; i++)
             {
                 actSec[i] = false;
             }
@@ -126,12 +127,42 @@ namespace PolarSectorsControl
                 });;
                 numCount[directionIndex]++;
             }
-           
+            Color aqua2 = new Color();
+            aqua2.A = 120;
+            aqua2.R = 66;
+            aqua2.G = 145;
+            aqua2.B = 255;
             Color pinky = Color.FromArgb(120, 255, 182, 193);
+           
+          //  actSec = new bool[countSec];
+          /*  for (var i = 0; i < countSec; i++)
+            {
+                actSectors[i] = false;
+            }*/
+            var ij = 0;
             foreach (var sector in viewPolar.Sectors)
             {
+               
+                if (sector.Fill.Color == aqua2)
+                {
+                    actSec[ij] = true;
+                }
+                ij++;
+            }
+            var ji = 0;
+            foreach (var sector in viewPolar.Sectors)
+            {
+                
                 sector.MouseUp += Sector_MouseUp;
-                sector.Fill.Color = pinky;
+                if (actSec[ji] == true)
+                {
+                    sector.Fill.Color = aqua2;
+                }
+                else
+                {
+                    sector.Fill.Color = pinky;
+                }
+                ji++;
             }
             chart.EndUpdate();
             

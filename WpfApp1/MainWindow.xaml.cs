@@ -47,7 +47,9 @@ namespace WpfApp1
             
             psControl?.SetCountSectors(countSecotrs);
             psControl?.GetCountSectors(countSecotrs);
-           
+          //  if (countSecotrs != 0)
+            psControl.actSec = new bool[countSecotrs];
+
             psControl?.SetActiveSector(countSecotrs);
           //  btnRefreshSector.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
            // psControl.SupplyRefresh();
@@ -83,7 +85,7 @@ namespace WpfApp1
             psControl.GetCountSectors(countSecotrs);
             psControl.SetActiveSector(countSecotrs);
             psControl.Draw(randomValue);
-            psControl.SupplyRefresh();
+      //      psControl.SupplyRefresh();
 
 
 
@@ -110,8 +112,9 @@ namespace WpfApp1
                 countSecotrs = 0;
             psControl?.GetCountSectors(countSecotrs);
             psControl?.SetCountSectors(countSecotrs);
+            //psControl.actSec = new bool[countSecotrs];
             psControl?.SetActiveSector(countSecotrs);
-
+            
             psControl?.SupplyRefresh();
 
 
@@ -184,7 +187,7 @@ namespace WpfApp1
             psControl.SetActiveSector(countSecotrs);
 
             psControl.Draw(randomValue);
-            psControl.SupplyRefresh();
+          //  psControl.SupplyRefresh();
 
         }
 

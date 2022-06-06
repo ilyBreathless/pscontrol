@@ -160,7 +160,7 @@ namespace PolarSectorsControl
                 }
                 else
                 {
-                    sector.Fill.Color = pinky;
+                    sector.Fill.Color = default;
                 }
                 ji++;
             }
@@ -201,18 +201,18 @@ namespace PolarSectorsControl
                 pinky.B = 193;
                 if (sector.Fill.Color == aqua)
                 {
-                    sector.Fill.Color = pinky;
+                    sector.Fill.Color = default;
                 }
                 else
                 {
-                    if (sector.Fill.Color == pinky)
+                    if (sector.Fill.Color == default)
                     {
                         sector.Fill.Color = aqua;
                     }
                     else
                   
                     {
-                        sector.Fill.Color = pinky;  
+                        sector.Fill.Color = default;  
 
                         isAqua = false;
                     }

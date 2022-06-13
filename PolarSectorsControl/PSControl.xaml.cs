@@ -57,15 +57,14 @@ namespace PolarSectorsControl
             ActiveSectorDelegate?.Invoke(this, new bool[1]);
             chart.BeginUpdate();
             viewPolar.Sectors = new SectorCollection();
-          
-            
+
             chart.ViewPolar.Axes.Add(axis2);
-            AreaSeriesPolar asp2 = new AreaSeriesPolar(chart.ViewPolar, axis2);
+           // AreaSeriesPolar asp2 = new AreaSeriesPolar(chart.ViewPolar, axis2);
            
             axis.SupplyCustomAngleString += Axis_SupplyCustomAngleString;
             axis2.SupplyCustomAngleString += Axis2_SupplyCustomAngleString;
             axis2.MajorDivCount = 1;
-            
+            axis2.AngleOrigin -= 11;
 
             chart.EndUpdate();
         }
@@ -90,14 +89,15 @@ namespace PolarSectorsControl
                     {
                         actSec[ij-1] = true;
                     }
-            }      
-            for (int j = 0; j <= countSec-1; j++)  
-            {
-                if (actSec[j] == true)
-                {
-                    activeSectorsList.Add(j);
-                }
             }
+            /* for (int j = 0; j <= countSec-1; j++)  
+             {
+                 if (actSec[j] == true)
+                 {
+                     activeSectorsList.Add(j);
+                 }
+             }*/
+          
         }
         public void SetAxisWithCircle ( double angle)
         {
@@ -108,8 +108,9 @@ namespace PolarSectorsControl
         public  void SetActiveSector (int valueSector)
         {
             chart.BeginUpdate();
-            //axis2.AngleOrigin = 135;
-            int[] numCount = new int[valueSector];
+          
+                //axis2.AngleOrigin = 135;
+                int[] numCount = new int[valueSector];
             double fullCircle = 360;
             int directionCount = valueSector;
             double sectorAngle = fullCircle / directionCount;
@@ -149,11 +150,12 @@ namespace PolarSectorsControl
                 }
                 ij++;
             }
+            
             var ji = 0;
-            foreach (var sector in viewPolar.Sectors)
+            foreach (var sector in viewPolar.Sectors) // попробовать вынести в другую функцию/initialize
             {
-                
-                sector.MouseUp += Sector_MouseUp;
+               sector.MouseUp += Sector_MouseUp;
+             
                 if (actSec[ji] == true)
                 {
                     sector.Fill.Color = aqua2;
@@ -165,11 +167,7 @@ namespace PolarSectorsControl
                 ji++;
             }
             chart.EndUpdate();
-            
         }
-
-       
-     
 
         private void Sector_MouseUp(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -213,7 +211,6 @@ namespace PolarSectorsControl
                   
                     {
                         sector.Fill.Color = default;  
-
                         isAqua = false;
                     }
 
@@ -221,9 +218,6 @@ namespace PolarSectorsControl
 
 
             }
-
-           
-
             chart.EndUpdate();
             ActiveSectorCount();
             ActiveSectorDelegate?.Invoke(this, actSec);
@@ -314,7 +308,7 @@ namespace PolarSectorsControl
         {
             chart.BeginUpdate();
             axis2.AngleOrigin = 150;
-
+            
             if (isDegrees)
             {
                 degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
@@ -361,35 +355,7 @@ namespace PolarSectorsControl
             chart.EndUpdate();
 
         }
-        public void DoCarRotate(double angle)
-        {
-          
-                chart.BeginUpdate();
-                axis2.AngleOrigin = 150;
-                if (isDegrees)
-                {
-                    degreesTest = (int)System.Math.Round(180 * angle / System.Math.PI);
-                }
-                if (carRotate < degreesTest /*&& degreesTest != 0*/)
-                {
-                    carRotate += rotateCar.Angle;
-                }
-                if (carRotate >= degreesTest / 2 && degreesTest != 0)
-                {
-                  //  koefAngle = (int)carRotate / degreesTest;
-                    axis2.AngleOrigin += degreesTest * koefAngle;
-                    carRotate = 0;
-                    koefAngle = 1;
-                }
-                if (degreesTest != 0 && isDegrees)
-                {
-                    numDegrees = (360 / degreesTest);
-                    isDegrees = false;
-
-                }
-              
-            chart.EndUpdate();
-        }
+       
 
       
         protected void DoEvents()
@@ -519,8 +485,6 @@ namespace PolarSectorsControl
         }
         public void SetCountSectors(int countSectors)
         {
-            
-            
             viewPolar.Sectors.Clear();
             if (countSectors < 2)
                 countSectors = 2;
@@ -723,8 +687,8 @@ namespace PolarSectorsControl
 
         private void control_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            SupplyRefresh();
-            axis2.AngleOrigin -= degreesTest / 2;
+         //   SupplyRefresh();
+          //  axis2.AngleOrigin -= degreesTest / 2;
         
         }
     }

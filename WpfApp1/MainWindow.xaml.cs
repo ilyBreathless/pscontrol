@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -47,9 +47,10 @@ namespace WpfApp1
             
             psControl?.SetCountSectors(countSecotrs);
             psControl?.GetCountSectors(countSecotrs);
-          //  if (countSecotrs != 0)
-            psControl.actSec = new bool[countSecotrs];
-
+            //  if (countSecotrs != 0)
+            
+                psControl.actSec = new bool[21];
+            
             psControl?.SetActiveSector(countSecotrs);
           //  btnRefreshSector.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
            // psControl.SupplyRefresh();
@@ -110,9 +111,11 @@ namespace WpfApp1
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
+
+
             psControl?.GetCountSectors(countSecotrs);
             psControl?.SetCountSectors(countSecotrs);
-            //psControl.actSec = new bool[countSecotrs];
+
             psControl?.SetActiveSector(countSecotrs);
             
             psControl?.SupplyRefresh();
@@ -157,7 +160,7 @@ namespace WpfApp1
         {
 
             psControl.SetAngleChartWithCar(e.NewValue);
-
+         //   psControl.SupplyRefresh();
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
@@ -167,7 +170,7 @@ namespace WpfApp1
                 countIter = 0;
             psControl?.SetCountRoundIteration(countIter);
             psControl.SetAxisWithCircle(e.NewValue);
-      
+            
         }
 
         private void btnRefreshPoint_Click(object sender, RoutedEventArgs e)

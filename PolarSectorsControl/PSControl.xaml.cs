@@ -24,7 +24,7 @@ namespace PolarSectorsControl
         private double theta;
 
         private double numDegrees = 0;
-        private bool isDegrees = true;
+        public bool isDegrees = true;
         private bool isAsqwe = true;
         private int testNum = 0;
         public double degreesTest = 0;
@@ -76,7 +76,6 @@ namespace PolarSectorsControl
             aqua2.R = 66;
             aqua2.G = 145;
             aqua2.B = 255;
-          //  actSec = new bool[countSec];
             for (var i = 0; i < countSec ; i++)
             {
                 actSec[i] = false;
@@ -90,18 +89,14 @@ namespace PolarSectorsControl
                         actSec[ij-1] = true;
                     }
             }
-            /* for (int j = 0; j <= countSec-1; j++)  
-             {
-                 if (actSec[j] == true)
-                 {
-                     activeSectorsList.Add(j);
-                 }
-             }*/
+        
           
         }
         public void SetAxisWithCircle ( double angle)
         {
-            axis2.AngleOrigin += angle;  
+           
+            axis2.AngleOrigin += angle;
+           
         }
 
        
@@ -109,7 +104,7 @@ namespace PolarSectorsControl
         {
             chart.BeginUpdate();
           
-                //axis2.AngleOrigin = 135;
+               // axis2.AngleOrigin = 139;
                 int[] numCount = new int[valueSector];
             double fullCircle = 360;
             int directionCount = valueSector;
@@ -135,11 +130,7 @@ namespace PolarSectorsControl
             aqua2.B = 255;
             Color pinky = Color.FromArgb(120, 255, 182, 193);
            
-          //  actSec = new bool[countSec];
-          /*  for (var i = 0; i < countSec; i++)
-            {
-                actSectors[i] = false;
-            }*/
+
             var ij = 0;
             foreach (var sector in viewPolar.Sectors)
             {
@@ -277,7 +268,7 @@ namespace PolarSectorsControl
             }
       
         }
-        
+     
         public void SupplyRefresh()
         {
             
@@ -303,6 +294,10 @@ namespace PolarSectorsControl
                 isAsqwe = false;
             }*/
             chart.EndUpdate();
+        }
+        public void refCount()
+        {
+            axis2.AngleOrigin -= degreesTest / 2;
         }
         public void Axis2_SupplyCustomAngleString(object sender, SupplyCustomAngleStringEventArgs e) 
         {

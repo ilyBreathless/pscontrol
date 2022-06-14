@@ -44,7 +44,7 @@ namespace WpfApp1
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
-            
+            psControl.isDegrees = true;
             psControl?.SetCountSectors(countSecotrs);
             psControl?.GetCountSectors(countSecotrs);
             //  if (countSecotrs != 0)
@@ -53,7 +53,7 @@ namespace WpfApp1
             
             psControl?.SetActiveSector(countSecotrs);
           //  btnRefreshSector.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-           // psControl.SupplyRefresh();
+            
             psControl.SetF(0.34324);
             psControl.SetTheta(24.5324);
         }
@@ -108,19 +108,25 @@ namespace WpfApp1
 
         private void tbCountSectors_TextChanged(object sender, TextChangedEventArgs e)
         {
+          //  psControl?.SupplyRefresh();
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
 
-
-            psControl?.GetCountSectors(countSecotrs);
+            
+           
+            for (var i = 0;  i < psControl?.actSec.Length; i++)
+            {
+                psControl.actSec[i] = false;
+            }
+          //  psControl?.GetCountSectors(countSecotrs);
             psControl?.SetCountSectors(countSecotrs);
 
             psControl?.SetActiveSector(countSecotrs);
-            
+
             psControl?.SupplyRefresh();
-
-
+            
+           // psControl?.refCount();
         }
 
 
@@ -160,7 +166,7 @@ namespace WpfApp1
         {
 
             psControl.SetAngleChartWithCar(e.NewValue);
-         //   psControl.SupplyRefresh();
+          //  psControl.SupplyRefresh();
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
@@ -169,8 +175,10 @@ namespace WpfApp1
             if (countIter < 0)
                 countIter = 0;
             psControl?.SetCountRoundIteration(countIter);
+        
             psControl.SetAxisWithCircle(e.NewValue);
-            
+           // psControl.SupplyRefresh();
+
         }
 
         private void btnRefreshPoint_Click(object sender, RoutedEventArgs e)

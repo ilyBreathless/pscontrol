@@ -9,7 +9,7 @@
         Loaded="Window_Loaded"
         WindowState="Maximized"
         Title="MainWindow" Height="600" Width="1200">
-        
+
     <Grid Background="#333">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -94,6 +94,6 @@
             </StackPanel>
         </StackPanel>
 
-        <psControl:PSControl Grid.Column="2" Grid.Row="1" x:Name="psControl" Margin="0,0.4,-0.4,0.4" />
+        <psControl:PSControl Grid.Column="1" x:Name="psControl" Margin="284.4,184,-0.4,0.4" Grid.RowSpan="2" Grid.ColumnSpan="2" />
     </Grid>
 </Window>

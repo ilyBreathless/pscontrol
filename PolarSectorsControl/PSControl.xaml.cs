@@ -43,7 +43,6 @@ namespace PolarSectorsControl
         public int countSec;
         public bool[] actSec;
         public bool[] actSectors;
-
         private  int checkCount = 8;
         public PSControl()
         {
@@ -83,6 +82,7 @@ namespace PolarSectorsControl
             var ij = 0;
             foreach (var sector in viewPolar.Sectors)
             {
+                
                     ij++;
                     if (sector.Fill.Color == aqua2)
                     {
@@ -95,7 +95,7 @@ namespace PolarSectorsControl
         public void SetAxisWithCircle ( double angle)
         {
            
-            axis2.AngleOrigin += angle;
+            axis2.AngleOrigin += angle ;
            
         }
 
@@ -273,14 +273,15 @@ namespace PolarSectorsControl
         {
             
              chart.BeginUpdate();
-             axis2.AngleOrigin = 150;
+            
+            axis2.AngleOrigin = 150 + rotateCar.Angle;
 
           /*  if (isDegrees)
             {
                 degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
             }*/
                axis2.AngleOrigin -= degreesTest / 2;
-
+           
             /*if (degreesTest != 0 && isDegrees)
             {
                 numDegrees = (int)System.Math.Round(360 / degreesTest);
@@ -309,7 +310,7 @@ namespace PolarSectorsControl
                 degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
             }
             axis2.AngleOrigin -= degreesTest / 2;
-
+            
             if (degreesTest != 0 && isDegrees)
             {
                 numDegrees = (int)System.Math.Round(360 / degreesTest);
@@ -441,7 +442,7 @@ namespace PolarSectorsControl
             RefreshSectors();
             
             SetActiveSector(countSec); 
-            SupplyRefresh();
+           // SupplyRefresh();
             if (localList.Count != 0)     
                 Draw(localList.ToArray());
                 
@@ -452,6 +453,7 @@ namespace PolarSectorsControl
             isDrawSectors = true;
             if (localList.Count != 0)
                 Draw(localList.ToArray());
+           // SupplyRefresh();
         }
 
         /// <summary>
@@ -480,6 +482,7 @@ namespace PolarSectorsControl
         }
         public void SetCountSectors(int countSectors)
         {
+           // UpdateLayout();
             viewPolar.Sectors.Clear();
             if (countSectors < 2)
                 countSectors = 2;
@@ -603,9 +606,10 @@ namespace PolarSectorsControl
         {
             axis.AngleOrigin = angle - 90f;
             rotateCar.Angle = angle;
-          
-            
+           
+
             Draw(localList.ToArray());
+            
         }
 
         /// <summary>

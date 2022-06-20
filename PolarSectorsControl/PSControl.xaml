@@ -71,15 +71,15 @@
                 AngleOrigin ="150"
                 AngularAxisAutoDivSpacing="False"
                 AngularAxisMajorDivCount="8"
+                            
                 AutoFormatLabels="False"
                 AxisColor="DarkBlue"
                 AngularAxisCircleVisible="False"
-                            AngularTicksVisible="False"
+                            AngularTicksVisible="True"
                             AngularLabelsVisible="True"
                             
-                InnerCircleRadiusPercentage="1"
-                            
-                MajorDivCount="1"
+               
+               
                 MouseHighlight="None"
                 MouseInteraction="False"
                 MouseScaling="False"
@@ -87,7 +87,10 @@
                 Reversed="True"
                 MaxAmplitude="255"
                 MinAmplitude="0"
-                TickMarkLocation="Outside">
+                TickMarkLocation="Outside" InnerCircleRadiusPercentage="1" MinorDivCount="1" MajorDivCount="1">
+                            <lcusb:AxisPolar.MajorDivTickStyle>
+                                <lcusb:AxisTickStyleRound Color="#FF005FFF"/>
+                            </lcusb:AxisPolar.MajorDivTickStyle>
                             <lcusb:AxisPolar.MinorGrid>
                                 <lcusb:GridOptionsRound Visible="False" />
                             </lcusb:AxisPolar.MinorGrid>
@@ -201,7 +204,7 @@
             <Label Content="S" HorizontalAlignment="Center"   VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Padding="0,2,0,4" FontSize="12" Foreground="White"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" >
-            <Label Content="W" HorizontalAlignment="Left"  Margin="41,47,0,0" HorizontalContentAlignment="Center" FontSize="12" Foreground="White" Height="28" >
+            <Label Content="W" HorizontalAlignment="Left"  Margin="60,47,0,0" HorizontalContentAlignment="Center" FontSize="12" Foreground="White" Height="28" >
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -213,7 +216,7 @@
             </Label>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" >
-            <Label Content="E" HorizontalAlignment="Right" Margin="0,11,27,0" VerticalAlignment="Top" FontSize="12" Foreground="White" >
+            <Label Content="E" HorizontalAlignment="Right" Margin="0,11,45,0" VerticalAlignment="Top" FontSize="12" Foreground="White" >
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

@@ -62,9 +62,10 @@ namespace PolarSectorsControl
            
             axis.SupplyCustomAngleString += Axis_SupplyCustomAngleString;
             axis2.SupplyCustomAngleString += Axis2_SupplyCustomAngleString;
-            axis2.MajorDivCount = 1;
-            axis2.AngleOrigin -= 11;
+          //  axis2.MajorDivCount = 1;
 
+            axis2.AngleOrigin -= 11;
+           
             chart.EndUpdate();
         }
       
@@ -94,9 +95,7 @@ namespace PolarSectorsControl
         }
         public void SetAxisWithCircle ( double angle)
         {
-           
-            axis2.AngleOrigin += angle ;
-           
+             axis2.AngleOrigin += angle ;
         }
 
        
@@ -303,13 +302,13 @@ namespace PolarSectorsControl
         public void Axis2_SupplyCustomAngleString(object sender, SupplyCustomAngleStringEventArgs e) 
         {
             chart.BeginUpdate();
-            axis2.AngleOrigin = 150;
             
+          //  axis2.MajorDivCount = 1;
             if (isDegrees)
             {
                 degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
             }
-            axis2.AngleOrigin -= degreesTest / 2;
+        //    axis2.AngleOrigin -= degreesTest / 2;
             
             if (degreesTest != 0 && isDegrees)
             {
@@ -517,7 +516,7 @@ namespace PolarSectorsControl
         {
             if (countRoundIteration < 1 || countRoundIteration > 255)
                 countRoundIteration = 1;
-            axis.MajorDivCount = countRoundIteration;
+            axis.MajorDivCount = countRoundIteration ;
             
         }
 

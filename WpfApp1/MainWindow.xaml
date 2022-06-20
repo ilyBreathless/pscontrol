@@ -9,7 +9,7 @@
         Loaded="Window_Loaded"
         WindowState="Maximized"
         SizeChanged="Window_SizeChanged"
-        ResizeMode="CanMinimize"
+        
         Title="MainWindow" Height="600" Width="1200">
     <Grid Background="#333">
         <Grid.ColumnDefinitions>

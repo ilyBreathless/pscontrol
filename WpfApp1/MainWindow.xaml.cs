@@ -19,6 +19,7 @@ namespace WpfApp1
 
         private int countObject;
         private delegate void EmptyDelegate();
+        public double tryTest;
        /*  static class D
          {
              public static int DATA { get; set; }
@@ -174,7 +175,7 @@ namespace WpfApp1
         private void sliderRotateChartWithCar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             
-            psControl.SetAngleChartWithCar(e.NewValue);
+           psControl.SetAngleChartWithCar(e.NewValue);
           
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
@@ -186,17 +187,20 @@ namespace WpfApp1
             psControl?.SetCountRoundIteration(countIter);
         
             psControl.SetAxisWithCircle(e.NewValue);
-           // psControl.SupplyRefresh();
+           // tryTest += e.NewValue;
+           psControl.SupplyRefresh();
 
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (this.WindowState == System.Windows.WindowState.Minimized)
-            {
-               psControl.SupplyRefresh();
-            }
-         
+           /* if (this.WindowState == System.Windows.WindowState.Normal)
+            {*/
+            //    psControl.SupplyRefresh();
+               /* psControl.SetAxisWithCircle(tryTest);
+            }*/
+
+
         }
         private void btnRefreshPoint_Click(object sender, RoutedEventArgs e)
         {

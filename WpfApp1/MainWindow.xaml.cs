@@ -47,13 +47,15 @@ namespace WpfApp1
             psControl.isDegrees = true;
             psControl?.SetCountSectors(countSecotrs);
             psControl?.GetCountSectors(countSecotrs);
-            //  if (countSecotrs != 0)
             
+          
                 psControl.actSec = new bool[21];
+           
+           
             
             psControl?.SetActiveSector(countSecotrs);
             //  btnRefreshSector.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-           
+           // psControl?.SupplyRefresh();
             psControl.SetF(0.34324);
             psControl.SetTheta(24.5324);
         }
@@ -109,26 +111,28 @@ namespace WpfApp1
         private void tbCountSectors_TextChanged(object sender, TextChangedEventArgs e)
         {
             //  psControl?.SupplyRefresh();
-           // psControl?.RefreshSectors();
+            // psControl?.RefreshSectors();
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
 
-          
-           
-            for (var i = 0;  i < psControl?.actSec.Length; i++)
+
+
+            for (var i = 0; i < psControl?.actSec.Length; i++)
             {
                 psControl.actSec[i] = false;
             }
-   
+            if (countSecotrs > 21)
+            {
+                countSecotrs = 16;
+            }
             //  psControl?.GetCountSectors(countSecotrs);
-            psControl?.SetCountSectors(countSecotrs);
-
-            psControl?.SetActiveSector(countSecotrs);
             
-              psControl?.SupplyRefresh();
-
-
+                 psControl?.SetCountSectors(countSecotrs);
+                 psControl?.SetActiveSector(countSecotrs);
+                 psControl?.SupplyRefresh();
+            
+           
             // psControl?.refCount();
         }
 
@@ -186,6 +190,14 @@ namespace WpfApp1
 
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.WindowState == System.Windows.WindowState.Minimized)
+            {
+               psControl.SupplyRefresh();
+            }
+         
+        }
         private void btnRefreshPoint_Click(object sender, RoutedEventArgs e)
         {
             int.TryParse(tbCountSectors.Text, out int countSecotrs);

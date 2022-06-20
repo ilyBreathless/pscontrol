@@ -201,7 +201,7 @@
             <Label Content="S" HorizontalAlignment="Center"   VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Padding="0,2,0,4" FontSize="12" Foreground="White"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" >
-            <Label Content="W" HorizontalAlignment="Left"  Margin="55,47,0,0" HorizontalContentAlignment="Center" FontSize="12" Foreground="White" Height="28" >
+            <Label Content="W" HorizontalAlignment="Left"  Margin="41,47,0,0" HorizontalContentAlignment="Center" FontSize="12" Foreground="White" Height="28" >
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -213,7 +213,7 @@
             </Label>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" >
-            <Label Content="E" HorizontalAlignment="Right" Margin="0,11,39,0" VerticalAlignment="Top" FontSize="12" Foreground="White" >
+            <Label Content="E" HorizontalAlignment="Right" Margin="0,11,27,0" VerticalAlignment="Top" FontSize="12" Foreground="White" >
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

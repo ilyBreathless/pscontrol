@@ -91,8 +91,6 @@ namespace WpfApp1
             psControl.Draw(randomValue);
       //      psControl.SupplyRefresh();
 
-
-
         }
         protected void DoEvents()
         {
@@ -194,12 +192,16 @@ namespace WpfApp1
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-           /* if (this.WindowState == System.Windows.WindowState.Normal)
-            {*/
+            /* if (this.WindowState == System.Windows.WindowState.Normal)
+             {*/
             //    psControl.SupplyRefresh();
-               /* psControl.SetAxisWithCircle(tryTest);
+            /* psControl.SetAxisWithCircle(tryTest);
+         }*/
+            psControl?.tryToW();
+           /* for (var i = 0; i < 4; i++)
+            {
+                psControl.wCord[2] -=1;
             }*/
-
 
         }
         private void btnRefreshPoint_Click(object sender, RoutedEventArgs e)

@@ -12,7 +12,7 @@ namespace PolarSectorsControl
     using Arction.Wpf.SemibindableCharting.Views.ViewPolar;
     using System.Windows.Threading;
     using System;
-
+    
     public partial class PSControl : UserControl
     {
         private readonly List<double> localList = new List<double>();
@@ -44,6 +44,7 @@ namespace PolarSectorsControl
         public bool[] actSec;
         public bool[] actSectors;
         private  int checkCount = 8;
+        public int[] wCord = new int[4] { 60, 47, 0, 0 };
         public PSControl()
         {
            
@@ -98,7 +99,11 @@ namespace PolarSectorsControl
              axis2.AngleOrigin += angle ;
         }
 
-       
+       public void tryToW()
+        {
+            
+        //    wTest.Margin = new System.Windows.Thickness(wCord[0],wCord[1],wCord[2],wCord[3]);
+        }
         public  void SetActiveSector (int valueSector)
         {
             chart.BeginUpdate();
@@ -261,6 +266,18 @@ namespace PolarSectorsControl
             
             switch (degrees)
             {
+                case 0:
+                    e.AngleAsString = "N";
+                    break;
+                case 90:
+                    e.AngleAsString = "E";
+                    break;
+                case 180:
+                    e.AngleAsString = "S";
+                    break;
+                case 270:
+                    e.AngleAsString = "W";
+                    break;
                 default:
                     e.AngleAsString = null;
                     break;

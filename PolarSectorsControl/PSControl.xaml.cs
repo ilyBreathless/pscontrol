@@ -63,13 +63,38 @@ namespace PolarSectorsControl
            
             axis.SupplyCustomAngleString += Axis_SupplyCustomAngleString;
             axis2.SupplyCustomAngleString += Axis2_SupplyCustomAngleString;
+            //axis3.SupplyCustomAngleString += Axis3_SupplyCustomAngleString;
           //  axis2.MajorDivCount = 1;
 
             axis2.AngleOrigin -= 11;
            
             chart.EndUpdate();
         }
-      
+
+        private void Axis3_SupplyCustomAngleString(object sender, SupplyCustomAngleStringEventArgs e)
+        {
+            int degrees = (int)Math.Round(180f * e.Angle / Math.PI);
+
+            switch (degrees)
+            {
+                case 0:
+                    e.AngleAsString = "N";
+                    break;
+                case 90:
+                    e.AngleAsString = "W";
+                    break;
+                case 180:
+                    e.AngleAsString = "S";
+                    break;
+                case 270:
+                    e.AngleAsString = "E";
+                    break;
+                default:
+                    e.AngleAsString = "";
+                    break;
+            }
+        }
+
         public void ActiveSectorCount ()
         {
             Color aqua2 = new Color();
@@ -262,24 +287,27 @@ namespace PolarSectorsControl
         
         private void Axis_SupplyCustomAngleString(object sender, SupplyCustomAngleStringEventArgs e)
         {
-            int degrees = ((int)System.Math.Round(180f * e.Angle / System.Math.PI) + (int)rotateCar.Angle) % 360;
-            
+           // int degrees = ((int)System.Math.Round(180f * e.Angle / System.Math.PI) + (int)rotateCar.Angle) % 360;
+            int degrees = (int)Math.Round(180f * e.Angle / Math.PI);
+         
+
             switch (degrees)
             {
                 case 0:
                     e.AngleAsString = "N";
                     break;
                 case 90:
-                    e.AngleAsString = "E";
+                    e.AngleAsString = "W";
                     break;
                 case 180:
                     e.AngleAsString = "S";
                     break;
                 case 270:
-                    e.AngleAsString = "W";
+                    e.AngleAsString = "E";
                     break;
+
                 default:
-                    e.AngleAsString = null;
+                    e.AngleAsString = "";
                     break;
             }
       

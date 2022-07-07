@@ -73,6 +73,7 @@
                 AngularAxisMajorDivCount="8"            
                 AutoFormatLabels="False"
                 AxisColor="DarkBlue"
+                
                 AngularAxisCircleVisible="False"
                             AngularTicksVisible="True"
                             AngularLabelsVisible="True"
@@ -98,38 +99,9 @@
                                 <lcusb:RoundAxisTitle Visible="False" />
                             </lcusb:AxisPolar.Units>
                         </lcusb:AxisPolar>
-                        <!--<lcusb:AxisPolar
-                x:Name="axis3"
-                AmplitudeAxisLineVisible="False"
-                AmplitudeLabelsVisible="False"
-                AngleOrigin="135"
-                AngularAxisAutoDivSpacing="False"
-                AngularAxisMajorDivCount="4"
-                AutoFormatLabels="False"
-                           
-                AxisColor="Black"
-                InnerCircleRadiusPercentage="5"
-                MajorDivCount="1"
-                MouseHighlight="None"
-                MouseInteraction="False"
-                MouseScaling="False"
-                MouseScrolling="False"
-                Reversed="True"
-                MaxAmplitude="255"
-                MinAmplitude="0"
-                TickMarkLocation="Outside">
-                            <lcusb:AxisPolar.MinorGrid>
-                                <lcusb:GridOptionsRound Visible="False" />
-                            </lcusb:AxisPolar.MinorGrid>
-                            <lcusb:AxisPolar.Title>
-                                <lcusb:RoundAxisTitle Visible="False"></lcusb:RoundAxisTitle>
-                            </lcusb:AxisPolar.Title>
-                            <lcusb:AxisPolar.Units>
-                                <lcusb:RoundAxisTitle Visible="False" />
-                            </lcusb:AxisPolar.Units>
-                        </lcusb:AxisPolar>-->
-
-
+                      
+                       
+                        
 
                     </lcusb:ViewPolar.Axes>
 

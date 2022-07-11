@@ -109,7 +109,7 @@ namespace WpfApp1
 
         private void tbCountSectors_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //  psControl?.SupplyRefresh();
+            
             // psControl?.RefreshSectors();
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
@@ -125,12 +125,12 @@ namespace WpfApp1
             {
                 countSecotrs = 16;
             }
-            //  psControl?.GetCountSectors(countSecotrs);
-            
+            btnRefreshSector?.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            psControl?.GetCountSectors(countSecotrs);
                  psControl?.SetCountSectors(countSecotrs);
                  psControl?.SetActiveSector(countSecotrs);
                  psControl?.SupplyRefresh();
-            
+           
            
             // psControl?.refCount();
         }

@@ -64,8 +64,8 @@ namespace PolarSectorsControl
             axis.SupplyCustomAngleString += Axis_SupplyCustomAngleString;
             axis2.SupplyCustomAngleString += Axis2_SupplyCustomAngleString;
             //axis3.SupplyCustomAngleString += Axis3_SupplyCustomAngleString;
-          //  axis2.MajorDivCount = 1;
-
+            //  axis2.MajorDivCount = 1;
+            viewPolar.AutoSizeMargins = true;
             axis2.AngleOrigin -= 11;
            
             chart.EndUpdate();
@@ -98,7 +98,7 @@ namespace PolarSectorsControl
         public void ActiveSectorCount ()
         {
             Color aqua2 = new Color();
-            aqua2.A = 120;
+            aqua2.A = 160;
             aqua2.R = 66;
             aqua2.G = 145;
             aqua2.B = 255;
@@ -153,11 +153,11 @@ namespace PolarSectorsControl
                 numCount[directionIndex]++;
             }
             Color aqua2 = new Color();
-            aqua2.A = 120;
+            aqua2.A = 160;
             aqua2.R = 66;
             aqua2.G = 145;
             aqua2.B = 255;
-            Color pinky = Color.FromArgb(120, 255, 182, 193);
+            Color pinky = Color.FromArgb(160, 255, 182, 193);
            
 
             var ij = 0;
@@ -197,7 +197,7 @@ namespace PolarSectorsControl
             if (isAqua == false)
             {
                 Color aqua = new Color();
-                aqua.A = 120;
+                aqua.A = 160;
                 aqua.R = 66;
                 aqua.G = 145;
                 aqua.B = 255;
@@ -208,12 +208,12 @@ namespace PolarSectorsControl
           
             {
                 Color aqua = new Color();
-                aqua.A = 120;
+                aqua.A = 160;
                 aqua.R = 66;
                 aqua.G = 145;
                 aqua.B = 255;
                 Color pinky = new Color();
-                pinky.A = 120;
+                pinky.A = 160;
                 pinky.R = 255;
                 pinky.G = 182;
                 pinky.B = 193;
@@ -247,7 +247,7 @@ namespace PolarSectorsControl
         public void changeColor()
         {
             Color aqua = new Color();
-            aqua.A = 120;
+            aqua.A = 160;
             aqua.R = 66;
             aqua.G = 145;
             aqua.B = 255;
@@ -287,30 +287,31 @@ namespace PolarSectorsControl
         
         private void Axis_SupplyCustomAngleString(object sender, SupplyCustomAngleStringEventArgs e)
         {
-           // int degrees = ((int)System.Math.Round(180f * e.Angle / System.Math.PI) + (int)rotateCar.Angle) % 360;
+           // int degrees = ((int)System.Math.Round(180f * e.Angle / System.Math.PI) ) % 360;
             int degrees = (int)Math.Round(180f * e.Angle / Math.PI);
-         
+            
+                
+            
+                switch (degrees)
+                {
+                    case 0:
+                        e.AngleAsString = "N";
+                        break;
+                    case 90:
+                        e.AngleAsString = "W";
+                        break;
+                    case 180:
+                        e.AngleAsString = "S";
+                        break;
+                    case 270:
+                        e.AngleAsString = "E";
+                        break;
 
-            switch (degrees)
-            {
-                case 0:
-                    e.AngleAsString = "N";
-                    break;
-                case 90:
-                    e.AngleAsString = "W";
-                    break;
-                case 180:
-                    e.AngleAsString = "S";
-                    break;
-                case 270:
-                    e.AngleAsString = "E";
-                    break;
-
-                default:
-                    e.AngleAsString = "";
-                    break;
-            }
-      
+                    default:
+                        e.AngleAsString = "";
+                        break;
+                }
+            
         }
      
         public void SupplyRefresh()
@@ -489,11 +490,13 @@ namespace PolarSectorsControl
            // SupplyRefresh();
             if (localList.Count != 0)     
                 Draw(localList.ToArray());
-                
+           
         }
 
+     
         private void RbSelectSectors_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            RefreshSectors();
             isDrawSectors = true;
             if (localList.Count != 0)
                 Draw(localList.ToArray());

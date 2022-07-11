@@ -9,6 +9,7 @@
              xmlns:local="clr-namespace:PolarSectorsControl"
              Name="control"
              Loaded="control_Loaded"
+             
              d:DesignHeight="1000" d:DesignWidth="1000">
 
     <UserControl.Resources>
@@ -30,7 +31,7 @@
                 <lcusb:ChartTitle Visible="False" />
             </lcusb:LightningChartUltimate.Title>
             <lcusb:LightningChartUltimate.ViewPolar>
-                <lcusb:ViewPolar x:Name="viewPolar" Margins="0">
+                <lcusb:ViewPolar x:Name="viewPolar" Margins="0" AutoSizeMargins="True">
                     <lcusb:ViewPolar.Axes>
                         <lcusb:AxisPolar
                 x:Name="axis"
@@ -140,7 +141,7 @@
             <Label Name="labelF" Content="" Foreground ="LightBlue" HorizontalAlignment="Left" />
             <Label Name="labelTheta" Content="" Foreground="LightBlue" HorizontalAlignment="Left" />
         </StackPanel>
-        <cc:ToggleSwitch x:Name="ToggleSwitch" Margin="2"
+        <cc:ToggleSwitch x:Name="ToggleSwitch"  Margin="2"
                         IsChecked="True"
                         HorizontalAlignment="Left"
                         SnapsToDevicePixels="True"

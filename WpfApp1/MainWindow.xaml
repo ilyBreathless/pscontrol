@@ -77,17 +77,17 @@
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="high Color" Foreground="LightBlue" FontSize="15" />
-                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged_1" Width="100" Margin="10,0,0,0" Height="24" />
+                <xctk:ColorPicker  SelectedColorChanged="ColorPicker_SelectedColorChanged_1"  Width="100" Margin="10,0,0,0" Height="24" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="mid Color" Foreground="LightBlue" FontSize="15" ></Label>
-                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged_2" Width="100" Margin="13,0,0,0" Height="24" />
+                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged_2" Width="100"  Margin="13,0,0,0" Height="24" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="low Color" Foreground="LightBlue" FontSize="15" ></Label>
-                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged" Width="100" Margin="15,0,0,0" Height="24" />
+                <xctk:ColorPicker SelectedColorChanged="ColorPicker_SelectedColorChanged" Width="100"  Margin="15,0,0,0" Height="24" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,-0.4,0">
                 <Button x:Name="btnRefreshSector" Content="refresh Sector" Margin="5,5,5,5" MaxWidth="100" Click="btnRefresh_Click" FontSize="15" Width="102" />

@@ -75,11 +75,11 @@ namespace WpfApp1
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            /*int.TryParse(tbCountSectors.Text, out int countSecotrs);
+            int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
-                countSecotrs = 0;*/
-          //  randomValue = new double[countSecotrs];
-            
+                countSecotrs = 0;
+            //  randomValue = new double[countSecotrs];
+
             Random random = new Random();
             for (int i = 0; i < randomValue.Length; i++)
             {
@@ -87,9 +87,9 @@ namespace WpfApp1
             }
           
             psControl.RefreshSectors();
-            /*psControl.GetCountSectors(countSecotrs);
+            ;
 
-            psControl.SetActiveSector(countSecotrs);*/
+            psControl.SetActiveSector(countSecotrs);
             psControl.Draw(randomValue);
       //      psControl.SupplyRefresh();
 
@@ -112,7 +112,7 @@ namespace WpfApp1
         private void tbCountSectors_TextChanged(object sender, TextChangedEventArgs e)
         {
             
-            // psControl?.RefreshSectors();
+           
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
@@ -132,9 +132,7 @@ namespace WpfApp1
             randomValue = new double[countSecotrs];
             psControl?.SetCountSectors(countSecotrs);
             psControl?.SetActiveSector(countSecotrs);
-            // psControl?.GetCountSectors(countSecotrs);
-         //   psControl?.SetCountSectors(countSecotrs);
-              //   psControl?.SetActiveSector(countSecotrs);
+          
                  psControl?.SupplyRefresh();
            
            
@@ -203,7 +201,8 @@ namespace WpfApp1
             //    psControl.SupplyRefresh();
             /* psControl.SetAxisWithCircle(tryTest);
          }*/
-            psControl?.tryToW();
+           // psControl?.axis2.AngleOrigin -= degreesTest / 2;
+           // psControl?.tryToW();
            /* for (var i = 0; i < 4; i++)
             {
                 psControl.wCord[2] -=1;
@@ -224,7 +223,7 @@ namespace WpfApp1
             }
            
             psControl.RefreshSectors();
-          //  psControl.SetActiveSector(countSecotrs);
+            psControl.SetActiveSector(countSecotrs);
 
             psControl.Draw(randomValue);
           //  psControl.SupplyRefresh();

@@ -490,17 +490,18 @@ namespace PolarSectorsControl
            // SupplyRefresh();
             if (localList.Count != 0)     
                 Draw(localList.ToArray());
-           
+            RefreshSectors();
         }
 
      
         private void RbSelectSectors_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-            RefreshSectors();
+           RefreshSectors();
             isDrawSectors = true;
             if (localList.Count != 0)
                 Draw(localList.ToArray());
-           // SupplyRefresh();
+            RefreshSectors();
+            // SupplyRefresh();
         }
 
         /// <summary>
@@ -655,7 +656,7 @@ namespace PolarSectorsControl
             rotateCar.Angle = angle;
            
 
-            Draw(localList.ToArray());
+           // Draw(localList.ToArray());
             
         }
 

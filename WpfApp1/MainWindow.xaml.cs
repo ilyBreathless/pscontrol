@@ -20,10 +20,11 @@ namespace WpfApp1
         private int countObject;
         private delegate void EmptyDelegate();
         public double tryTest;
-       /*  static class D
-         {
-             public static int DATA { get; set; }
-         }*/
+        double[] randomValue = new double[16];
+        /*  static class D
+          {
+              public static int DATA { get; set; }
+          }*/
         // MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
         public MainWindow()
         {
@@ -74,10 +75,10 @@ namespace WpfApp1
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            int.TryParse(tbCountSectors.Text, out int countSecotrs);
+            /*int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
-                countSecotrs = 0;
-            double[] randomValue = new double[countSecotrs];
+                countSecotrs = 0;*/
+          //  randomValue = new double[countSecotrs];
             
             Random random = new Random();
             for (int i = 0; i < randomValue.Length; i++)
@@ -86,8 +87,9 @@ namespace WpfApp1
             }
           
             psControl.RefreshSectors();
-            psControl.GetCountSectors(countSecotrs);
-            psControl.SetActiveSector(countSecotrs);
+            /*psControl.GetCountSectors(countSecotrs);
+
+            psControl.SetActiveSector(countSecotrs);*/
             psControl.Draw(randomValue);
       //      psControl.SupplyRefresh();
 
@@ -114,9 +116,6 @@ namespace WpfApp1
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
-
-
-
             for (var i = 0; i < psControl?.actSec.Length; i++)
             {
                 psControl.actSec[i] = false;
@@ -125,10 +124,17 @@ namespace WpfApp1
             {
                 countSecotrs = 16;
             }
-            btnRefreshSector?.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            
+            //btnRefreshSector?.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            
+         //   psControl?.RefreshSectors();
             psControl?.GetCountSectors(countSecotrs);
-                 psControl?.SetCountSectors(countSecotrs);
-                 psControl?.SetActiveSector(countSecotrs);
+            randomValue = new double[countSecotrs];
+            psControl?.SetCountSectors(countSecotrs);
+            psControl?.SetActiveSector(countSecotrs);
+            // psControl?.GetCountSectors(countSecotrs);
+         //   psControl?.SetCountSectors(countSecotrs);
+              //   psControl?.SetActiveSector(countSecotrs);
                  psControl?.SupplyRefresh();
            
            
@@ -209,7 +215,7 @@ namespace WpfApp1
             int.TryParse(tbCountSectors.Text, out int countSecotrs);
             if (countSecotrs < 0)
                 countSecotrs = 0;
-            double[] randomValue = new double[countSecotrs];
+          //  randomValue = new double[countSecotrs];
 
             Random random = new Random();
             for (int i = 0; i < randomValue.Length; i++)
@@ -218,7 +224,7 @@ namespace WpfApp1
             }
            
             psControl.RefreshSectors();
-            psControl.SetActiveSector(countSecotrs);
+          //  psControl.SetActiveSector(countSecotrs);
 
             psControl.Draw(randomValue);
           //  psControl.SupplyRefresh();

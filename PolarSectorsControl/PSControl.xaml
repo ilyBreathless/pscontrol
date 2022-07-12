@@ -9,7 +9,6 @@
              xmlns:local="clr-namespace:PolarSectorsControl"
              Name="control"
              Loaded="control_Loaded"
-             
              d:DesignHeight="1000" d:DesignWidth="1000">
 
     <UserControl.Resources>
@@ -67,13 +66,12 @@
                         </lcusb:AxisPolar>
                         <lcusb:AxisPolar
                 x:Name="axis2"
-                AmplitudeAxisLineVisible="False"
                 AmplitudeLabelsVisible="False"
                 AngleOrigin ="150"
                 AngularAxisAutoDivSpacing="False"
                 AngularAxisMajorDivCount="8"            
                 AutoFormatLabels="False"
-                AxisColor="DarkBlue"
+                AxisColor="AliceBlue"
                 AngularAxisCircleVisible="False"
                             AngularTicksVisible="True"
                             AngularLabelsVisible="True"
@@ -84,7 +82,7 @@
                 Reversed="True"
                 MaxAmplitude="255"
                 MinAmplitude="0"
-                TickMarkLocation="Outside" InnerCircleRadiusPercentage="1" MinorDivCount="1" MajorDivCount="1">
+                TickMarkLocation="Outside" MinorDivCount="1" MajorDivCount="1" AmplitudeAxisLineVisible="False">
                             <lcusb:AxisPolar.MajorDivTickStyle>
                                 <lcusb:AxisTickStyleRound Color="#FF005FFF"/>
                             </lcusb:AxisPolar.MajorDivTickStyle>

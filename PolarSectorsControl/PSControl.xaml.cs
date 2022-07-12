@@ -67,7 +67,7 @@ namespace PolarSectorsControl
             //  axis2.MajorDivCount = 1;
             viewPolar.AutoSizeMargins = true;
             axis2.AngleOrigin -= 11;
-           
+          
             chart.EndUpdate();
         }
 
@@ -99,9 +99,9 @@ namespace PolarSectorsControl
         {
             Color aqua2 = new Color();
             aqua2.A = 160;
-            aqua2.R = 66;
-            aqua2.G = 145;
-            aqua2.B = 255;
+            aqua2.R = 255;
+            aqua2.G = 0;
+            aqua2.B = 0;
             for (var i = 0; i < countSec ; i++)
             {
                 actSec[i] = false;
@@ -154,10 +154,10 @@ namespace PolarSectorsControl
             }
             Color aqua2 = new Color();
             aqua2.A = 160;
-            aqua2.R = 66;
-            aqua2.G = 145;
-            aqua2.B = 255;
-            Color pinky = Color.FromArgb(160, 255, 182, 193);
+            aqua2.R = 255;
+            aqua2.G = 0;
+            aqua2.B = 0;
+            Color pinky = Color.FromArgb(160, 255, 0, 0);
            
 
             var ij = 0;
@@ -198,9 +198,9 @@ namespace PolarSectorsControl
             {
                 Color aqua = new Color();
                 aqua.A = 160;
-                aqua.R = 66;
-                aqua.G = 145;
-                aqua.B = 255;
+                aqua.R = 255;
+                aqua.G = 0;
+                aqua.B = 0;
                 sector.Fill.Color = aqua;              
                 isAqua = true;
                 
@@ -209,14 +209,14 @@ namespace PolarSectorsControl
             {
                 Color aqua = new Color();
                 aqua.A = 160;
-                aqua.R = 66;
-                aqua.G = 145;
-                aqua.B = 255;
+                aqua.R = 255;
+                aqua.G = 0;
+                aqua.B = 0;
                 Color pinky = new Color();
                 pinky.A = 160;
                 pinky.R = 255;
-                pinky.G = 182;
-                pinky.B = 193;
+                pinky.G = 0;
+                pinky.B = 0;
                 if (sector.Fill.Color == aqua)
                 {
                     sector.Fill.Color = default;
@@ -248,9 +248,9 @@ namespace PolarSectorsControl
         {
             Color aqua = new Color();
             aqua.A = 160;
-            aqua.R = 66;
-            aqua.G = 145;
-            aqua.B = 255;
+            aqua.R = 255;
+            aqua.G = 0;
+            aqua.B = 0;
             for (int i = 0; i<= checkCount; i++)
             {
                 foreach (var sector in viewPolar.Sectors)
@@ -289,8 +289,8 @@ namespace PolarSectorsControl
         {
            // int degrees = ((int)System.Math.Round(180f * e.Angle / System.Math.PI) ) % 360;
             int degrees = (int)Math.Round(180f * e.Angle / Math.PI);
+
             
-                
             
                 switch (degrees)
                 {
@@ -320,12 +320,12 @@ namespace PolarSectorsControl
              chart.BeginUpdate();
             
             axis2.AngleOrigin = 150 + rotateCar.Angle;
-
-          /*  if (isDegrees)
-            {
-                degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
-            }*/
-               axis2.AngleOrigin -= degreesTest / 2;
+            axis2.AngularAxisCircleVisible = false;
+            /*  if (isDegrees)
+              {
+                  degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
+              }*/
+            axis2.AngleOrigin -= degreesTest / 2;
            
             /*if (degreesTest != 0 && isDegrees)
             {
@@ -347,9 +347,11 @@ namespace PolarSectorsControl
         }
         public void Axis2_SupplyCustomAngleString(object sender, SupplyCustomAngleStringEventArgs e) 
         {
+            axis2.AngularAxisCircleVisible = false;
             chart.BeginUpdate();
-            
-          //  axis2.MajorDivCount = 1;
+
+            // axis2.AngleOrigin = 135;
+            //axis2.InnerCircleRadiusPercentage = 10;
             if (isDegrees)
             {
                 degreesTest = (int)System.Math.Round(180 * e.Angle / System.Math.PI);
@@ -486,21 +488,25 @@ namespace PolarSectorsControl
             isDrawSectors = false;
             RefreshSectors();
             
-            SetActiveSector(countSec); 
+          //  SetActiveSector(countSec); 
            // SupplyRefresh();
+
             if (localList.Count != 0)     
                 Draw(localList.ToArray());
-            RefreshSectors();
+           // RefreshSectors();
+            SetActiveSector(countSec);
         }
 
      
         private void RbSelectSectors_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-           RefreshSectors();
+          RefreshSectors();
+            
             isDrawSectors = true;
             if (localList.Count != 0)
                 Draw(localList.ToArray());
-            RefreshSectors();
+           RefreshSectors();
+            SetActiveSector(countSec);
             // SupplyRefresh();
         }
 
@@ -576,7 +582,8 @@ namespace PolarSectorsControl
         /// <returns></returns>
         public void SetCollorLowLevel(Color color)
         {
-            color.A = 60;
+            color.A = 20;
+           
             palette.Steps[0].Color = color;
         }
 
@@ -587,7 +594,8 @@ namespace PolarSectorsControl
         /// <returns></returns>
         public void SetCollorMidLevel(Color color)
         {
-            color.A = 30;
+            color.A = 20;
+     
             palette.Steps[1].Color = color;
         }
 
@@ -598,7 +606,8 @@ namespace PolarSectorsControl
         /// <returns></returns>
         public void SetCollorHighLevel(Color color)
         {
-            color.A = 30;
+            color.A = 20;
+           
             palette.Steps[2].Color = color;
         }
 
